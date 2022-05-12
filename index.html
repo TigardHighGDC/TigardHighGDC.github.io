@@ -11,6 +11,21 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@500&family=Hind+Vadodara&family=Kanit:wght@700&display=swap"
 	 rel="stylesheet">
+
+   <style>
+    @media (max-width: 767px) {
+      .hidden-mobile {
+        display: none;
+      }
+    }
+
+    @media (min-width: 767px) {
+      .hidden-desktop {
+        display: none;
+      }
+    }
+  </style>
+
 </head>
 
 <!-- 
@@ -35,42 +50,87 @@ and for individuals getting contacts i think we can do that in the about me page
 		<a href=/index.html><p id='header-title'>SYSTEM RESET</p></a>
 	</header>
 
-	<div class="lol">
+  <div class="lol">
 	</div>
 
-	<div class="slidershow center">
 
-		<div class="slides">
-			<input type="radio" name="r" id="r1" checked="">
-        <input type="radio" name="r" id="r2">
-        <input type="radio" name="r" id="r3">
-        <input type="radio" name="r" id="r4">
-        <input type="radio" name="r" id="r5">
-        <div class="slide s1">
-          <img src="image assets/1.jpg" alt="">
-        </div>
-        <div class="slide">
-          <img src="image assets/2.jpg" alt="">
-        </div>
-        <div class="slide">
-          <img src="image assets/3.jpg" alt="">
-        </div>
-        <div class="slide">
-          <img src="image assets/4.jpg" alt="">
-        </div>
-        <div class="slide">
-          <img src="image assets/5.jpg" alt="">
-        </div>
-      </div>
+	<!-- Slideshow container -->
+<div class="slideshow-container">
 
-      <div class="navigation">
-        <label for="r1" class="bar"></label>
-        <label for="r2" class="bar"></label>
-        <label for="r3" class="bar"></label>
-        <label for="r4" class="bar"></label>
-        <label for="r5" class="bar"></label>
-      </div>
-    </div>  
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="/image assets/1.jpg" style="width:100%">
+    <div class="text"><span class='caption'>Beta level design</span></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 5</div>
+    <img src="/image assets/2.jpg" style="width:100%">
+    <div class="text"><span class='caption'>Beta gameplay design</span></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 5</div>
+    <img src="/image assets/3.jpg" style="width:100%">
+    <div class="text"><span class='caption'>Main character concept art</span></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">4 / 5</div>
+    <img src="/image assets/4.jpg" style="width:100%">
+    <div class="text"><span class='caption'>Mantis model</span></div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">5 / 5</div>
+    <img src="/image assets/5.jpg" style="width:100%">
+    <div class="text"><span class='caption'>Mantis concept art</span></div>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+  <span class="dot" onclick="currentSlide(4)"></span>
+  <span class="dot" onclick="currentSlide(5)"></span>
+</div>
+
+<script>
+  let slideIndex = 1;
+  showSlides(slideIndex);
+  
+  function plusSlides(n) {
+    showSlides(slideIndex += n);
+  }
+  
+  function currentSlide(n) {
+    showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}    
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";  
+    dots[slideIndex-1].className += " active";
+  }
+  </script>
 
     <div class='our-peeps'>
       <h1 id='our-peeps'>LORE</h1>
@@ -87,6 +147,7 @@ and for individuals getting contacts i think we can do that in the about me page
       <h1 id='our-peeps'>OUR TEAM</h1>
     </div>
 
+    <div class="hidden-mobile">
   <div class="parent">
     <div class="div1" id='our-peeps'> WEB DEVELOPERS </div>
     <div class="div2"> 
@@ -140,7 +201,67 @@ and for individuals getting contacts i think we can do that in the about me page
         <span class='caption'>Ethan</a></span>
       </div>
     </div>
+
     </div>
+    </div>
+
+    <div class="hidden-desktop">
+      <div class="mparent">
+        <div class="mdiv1" id='our-peeps'> WEB DEVELOPERS </div>
+        <div class="mdiv2"> 
+          <div class='member'>
+            <a href='/profiles/james.html'>
+            <img src='/profiles/jamesHeadshot.jpg' alt='James' id='team-member'/>
+            <span class='caption'>James</a> </span>
+          </div>
+        </div>
+        <div class="mdiv3"> 
+          <div class='member'>
+            <a href='/profiles/street.html'>
+            <img src='/profiles/streetHeadshot.jpg' alt='Street' id='team-member'/>
+            <span class='caption'>Street</a></span>
+          </div>
+        </div>
+        <div class="mdiv4" id='our-peeps'> PROGRAMMERS </div>
+        <div class="mdiv5"> 
+          <div class='member'>
+            <a href='/profiles/jake.html'>
+            <img src='/profiles/jakeHeadshot.jpg' alt='Jake' id='team-member'/>
+            <span class='caption'>Jake</a></span>
+          </div>
+        </div>
+        <div class="mdiv6"> 
+          <div class='member'>
+            <a href='/profiles/brandonPacewic.html'>
+            <img src='/profiles/brandonHeadshot.jpg' alt='Brandon' id='team-member'/>
+            <span class='caption'>Brandon</a></span>
+          </div>
+        </div>
+        <div class="mdiv7"> 
+          <div class='member'>
+            <a href='/profiles/nathan.html'>
+            <img src='/profiles/nathanHeadshot.jpg' alt='Nathan' id='team-member'/>
+            <span class='caption'>Nathan</a></span>
+          </div>
+        </div>
+        <div class="mdiv8" id='our-peeps'> ARTISTS</div>
+        <div class="mdiv9"> 
+          <div class='member'>
+            <a href='/profiles/kaia.html'>
+            <img src='/profiles/kaiaHeadshot.jpg' alt='Kaia' id='team-member'/>
+            <span class='caption'>Kaia</a></span>
+          </div>
+        </div>
+        <div class="mdiv10"> 
+          <div class='member'>
+            <a href='/profiles/nisaycs.html'>
+            <img src='/profiles/nisaycsHeadshot.jpg' alt='Ethan' id='team-member'/>
+            <span class='caption'>Ethan</a></span>
+          </div>
+        </div>
+    
+        </div>
+        </div>
     
   <footer class='footer'>
     <div id='footer-container' class='flex-row'>
@@ -163,10 +284,13 @@ and for individuals getting contacts i think we can do that in the about me page
       </div>
     </div>
 
+    <div class="hidden-mobile">
+      <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+        <script src="./darkModeScript.js"></script>
+      </div>
+
   </footer>
   
-  <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-    <script src="./darkModeScript.js"></script>
     
 </body>  
 </html>
